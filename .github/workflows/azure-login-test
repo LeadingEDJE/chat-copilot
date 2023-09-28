@@ -32,7 +32,6 @@ env:
 on:
   push:
     branches: [ "*" ]
-  workflow_dispatch:
   workflow_call:
     secrets:
       AZURE_CLIENT_ID:
