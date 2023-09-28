@@ -26,3 +26,12 @@ jobs:
         run: |
           az login --service-principal --username "$AZURE_APP_ID_URI" --password "$AZURE_CLIENT_SECRET" --tenant "$AZURE_TENANT_ID"
 
+      - name: Create Test Storage Account
+        run: |
+          az storage account create --name teststorageaccount$RANDOM --resource-group edje-copilot --location eastus2 --sku Standard_LRS
+
+      #- name: Delete Test Storage Account
+       # env:
+       #   AZURE_RESOURCE_GROUP: ${{ secrets.AZURE_RESOURCE_GROUP }}
+        #run: |
+          # az storage account delete --name teststorageaccount$RANDOM --resource-group edje-copilot --yes
