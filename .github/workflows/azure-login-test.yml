@@ -12,8 +12,11 @@ on:
         required: true
 
 jobs:
-  Explore-GitHub-Actions:
+  Test-Login:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: Azure login
         uses: azure/login@v1
