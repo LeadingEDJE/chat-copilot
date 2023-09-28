@@ -844,7 +844,7 @@
       "location": "[parameters('location')]",
       "kind": "linux",
       "sku": {
-        "name": "P1v3"
+        "name": "B1"
       },
       "properties": {
         "reserved": true
@@ -1327,7 +1327,7 @@
       "name": "[format('cog-speech-{0}', variables('uniqueName'))]",
       "location": "[parameters('location')]",
       "sku": {
-        "name": "S0"
+        "name": "F0"
       },
       "kind": "SpeechServices",
       "identity": {
@@ -1347,7 +1347,7 @@
       "name": "[format('cog-ocr-{0}', variables('uniqueName'))]",
       "location": "[parameters('location')]",
       "sku": {
-        "name": "S0"
+        "name": "F0"
       },
       "kind": "FormRecognizer",
       "identity": {
