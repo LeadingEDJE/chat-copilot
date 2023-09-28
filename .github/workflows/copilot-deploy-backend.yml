@@ -15,6 +15,8 @@ on:
     secrets:
       AZURE_CLIENT_ID:
         required: true
+      AZURE_CLIENT_SECRET:
+        required: true
       AZURE_TENANT_ID:
         required: true
       AZURE_SUBSCRIPTION_ID:
@@ -58,7 +60,7 @@ jobs:
           AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
           AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
         run: |
-          az login --service-principal --username "$AZURE_APP_ID_URI" --password "$AZURE_CLIENT_SECRET" --tenant "$AZURE_TENANT_ID"
+          az login --service-principal --username "${{ secrets.AZURE_CLIENT_ID }}" --password "${{secrets.AZURE_CLIENT_SECRET}}" --tenant="${{ secrets.AZURE_TENANT_ID }}"
 
       - name: Get app name
         id: app-name

@@ -9,6 +9,8 @@ on:
     secrets:
       AZURE_CLIENT_ID:
         required: true
+      AZURE_CLIENT_SECRET:
+        required: true
       AZURE_TENANT_ID:
         required: true
       AZURE_SUBSCRIPTION_ID:
@@ -46,7 +48,7 @@ jobs:
 
       - name: Login to Azure
         run: |
-          az login --service-principal --username="${{ secrets.AZURE_CLIENT_ID }}" --password "${{secrets.AZURE_CLIENT_SECRET}}" --tenant="${{ secrets.AZURE_TENANT_ID }}"
+          az login --service-principal --username "${{ secrets.AZURE_CLIENT_ID }}" --password "${{secrets.AZURE_CLIENT_SECRET}}" --tenant="${{ secrets.AZURE_TENANT_ID }}"
 
       - name: deploy-infra
         uses: azure/CLI@v1
