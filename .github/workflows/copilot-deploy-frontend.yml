@@ -50,13 +50,13 @@ jobs:
       - name: "Install SWA CLI"
         run: npm install -g @azure/static-web-apps-cli
 
-      - name: Azure login
-        uses: azure/login@v1
-        with:
-          client-id: ${{secrets.AZURE_CLIENT_ID}}
-          tenant-id: ${{secrets.AZURE_TENANT_ID}}
-          subscription-id: ${{secrets.AZURE_SUBSCRIPTION_ID}}
-          enable-AzPSSession: false
+      - name: Login to Azure
+        env:
+          AZURE_APP_ID_URI: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+        run: |
+          az login --service-principal --username "$AZURE_APP_ID_URI" --password "$AZURE_CLIENT_SECRET" --tenant "$AZURE_TENANT_ID"
 
       - name: "Get and Mask SWA Deployment Token"
         uses: azure/CLI@v1

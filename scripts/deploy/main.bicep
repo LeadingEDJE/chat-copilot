@@ -678,7 +678,7 @@ resource appServicePlanQdrant 'Microsoft.Web/serverfarms@2022-03-01' = if (memor
   location: location
   kind: 'linux'
   sku: {
-    name: 'P1v3'
+    name: 'B1'
   }
   properties: {
     reserved: true
