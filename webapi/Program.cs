@@ -69,7 +69,7 @@ public sealed class Program
 
         // Add in the rest of the services.
         builder.Services
-            .AddMainetnanceServices()
+            .AddMaintenanceServices()
             .AddEndpointsApiExplorer()
             .AddSwaggerGen()
             .AddCorsPolicy(builder.Configuration)
@@ -92,7 +92,7 @@ public sealed class Program
             .RequireAuthorization();
         app.MapHealthChecks("/healthz");
 
-        // Add CopilotChat hub for real time communication
+        // Add Chat Copilot hub for real time communication
         app.MapHub<MessageRelayHub>("/messageRelayHub");
 
         // Enable Swagger for development environments.
